@@ -4,18 +4,19 @@ import {setCurrentPage, setPosts, setTotalNewsCount, toggleIsFetching} from "../
 import * as axios from "axios";
 import News from "./News";
 import Preloader from "../common/Preloader/Preloader";
+import {getNews} from "../../api/api";
 
 
 class NewsContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`http://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey=5495a97e2ea541478caa583b30617675&page=${this.props.currentPage}&pageSize=${this.props.pageSize}`)
-            .then(response => {
+        getNews(this.props.currentPage, this.props.pageSize).then(response => {
                 this.props.toggleIsFetching(false);
                 this.props.setPosts(response.data.articles);
                 this.props.setTotalNewsCount(response.data.totalResults)
             })
+        debugger;
     }
 
     onPageChanged = (pageNumber) => {
