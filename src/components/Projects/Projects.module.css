@@ -6,6 +6,8 @@
     display: grid;
     height: auto;
     grid-template-columns: 6fr 6fr;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }
 .add {
     margin: auto;

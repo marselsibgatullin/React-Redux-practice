@@ -3,6 +3,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }
 .tech {
     text-decoration: none;
@@ -25,5 +27,7 @@
     text-decoration: none;
 }
 .tittle{
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
     color: black;
 }

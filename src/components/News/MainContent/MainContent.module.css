@@ -5,6 +5,8 @@
     background-color: lightgrey;
     border-radius: 30px;
     grid-template-columns: 5fr 7fr;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }
 .imagemain{
     margin-top: 30px;
@@ -27,6 +29,6 @@
     color: black;
     text-align: center;
     display: block;
-    margin-bottom: 10%px;
+    margin-bottom: 10%;
     margin-top: 10%;
 }

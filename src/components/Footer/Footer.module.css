@@ -1,6 +1,8 @@
 .footer{
     grid-area: f;
     text-align: center;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }
 .hr{
     color: black;

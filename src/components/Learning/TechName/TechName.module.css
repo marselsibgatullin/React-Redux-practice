@@ -4,4 +4,6 @@
 .text {
     text-decoration: none;
     color: black;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }

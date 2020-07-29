@@ -4,4 +4,6 @@
     background-color: lightgrey;
     display: grid;
     grid-template-columns: 4fr 8fr;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }

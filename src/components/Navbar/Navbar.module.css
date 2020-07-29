@@ -5,6 +5,8 @@
     grid-template-columns: 3fr 3fr 3fr 3fr;
 }
 .menu a{
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
     height: 91%;
     text-align: center;
     display: block;

@@ -11,7 +11,7 @@ let initialState = {
         },
         {
             id: 2,
-            link: '/',
+            link: 'https://github.com/marselsibgatullin/React-Redux-practice',
             desc: 'Description',
             title: 'React-redux learning practice'
         }

@@ -3,12 +3,16 @@
 }
 .post {
     margin-left: 2px;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }
 .selectedPage{
     font-weight: bold;
 }
 .pagi {
     text-align: center;
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
 }
 .load {
     margin: auto;
