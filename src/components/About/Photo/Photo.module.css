@@ -1,0 +1,15 @@
+.content{
+    display: grid;
+    grid-template-rows: 400px 50px;
+    text-align: center;
+
+}
+.photo {
+    margin: auto;
+    height: 200px;
+    border-radius: 30px;
+}
+.ico{
+    width: 20px;
+    padding-right: 10px;
+}

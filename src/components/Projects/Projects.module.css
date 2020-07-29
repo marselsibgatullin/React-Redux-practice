@@ -1,0 +1,21 @@
+.content{
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: lightgrey;
+    display: grid;
+    height: auto;
+    grid-template-columns: 6fr 6fr;
+}
+.add {
+    margin: auto;
+}
+.addBlock {
+    margin-top: 100px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 40px 40px 40px 10px;
+}
+.projects{
+    padding-bottom: 50px;
+}

@@ -1,0 +1,20 @@
+.nav{
+    grid-area: n;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+}
+.menu a{
+    height: 91%;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: lightgrey;
+}
+.menu a:hover {
+    color: black;
+    background-color: #787878;
+}

@@ -1,0 +1,9 @@
+.footer{
+    grid-area: f;
+    text-align: center;
+}
+.hr{
+    color: black;
+    background-color: black;
+    height: 1px;
+}

@@ -1,0 +1,27 @@
+.header{
+    grid-area: h;
+    height: 99%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+
+}
+.header img {
+    border: 1px solid black;
+    border-radius: 30px;
+    height:87px;
+
+    }
+.header h1{
+    font-style: oblique;
+    font-family: URW Chancery L, cursive;
+}
+.login{
+    height: 25px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+.link {
+    text-decoration: none;
+    color: black;
+}

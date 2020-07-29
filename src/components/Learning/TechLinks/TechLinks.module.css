@@ -1,0 +1,29 @@
+.text {
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+.tech {
+    text-decoration: none;
+    margin-top: 2px;
+    border: 1px solid black;
+    border-radius: 30px;
+    text-align: center;
+    background-color: lightgrey;
+    width:99%;
+    height: 150px;
+}
+.img {
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    float: left;
+    margin-left: 10px;
+}
+.link {
+    text-decoration: none;
+}
+.tittle{
+    color: black;
+}

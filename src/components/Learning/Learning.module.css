@@ -1,0 +1,14 @@
+.content{
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: lightgrey;
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+}
+.name{
+    margin: auto;
+}
+.links{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
