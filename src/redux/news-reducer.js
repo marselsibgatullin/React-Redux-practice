@@ -1,14 +1,16 @@
+import {newsAPI} from "../api/api";
+
 const SET_POSTS = 'SET-POSTS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_NEWS_COUNT = 'SET-TOTAL-NEWS-COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 
 let initialState = {
-    post: [ ],
-    pageSize:7,
+    post: [],
+    pageSize: 7,
     totalNewsCount: 0,
-    currentPage : 1,
-    isFetching : false
+    currentPage: 1,
+    isFetching: false
 }
 
 const newsReducer = (state = initialState, action) => {
@@ -47,5 +49,17 @@ export const setPosts = (post) => ({type: SET_POSTS, post})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setTotalNewsCount = (totalNewsCount) => ({type: SET_TOTAL_NEWS_COUNT, totalNewsCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+
+
+export const getNews = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        newsAPI.getNews(currentPage, pageSize).then(response => {
+            dispatch(toggleIsFetching(false));
+            dispatch(setPosts(response.data.articles));
+            dispatch(setTotalNewsCount(response.data.totalResults));
+        });
+    }
+}
 
 export default newsReducer;

@@ -1,32 +1,21 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setCurrentPage, setPosts, setTotalNewsCount, toggleIsFetching} from "../../redux/news-reducer";
-import * as axios from "axios";
+import {
+    getNews,
+    setCurrentPage,
+} from "../../redux/news-reducer";
 import News from "./News";
 import Preloader from "../common/Preloader/Preloader";
-import {getNews} from "../../api/api";
-
 
 class NewsContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        getNews(this.props.currentPage, this.props.pageSize).then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setPosts(response.data.articles);
-                this.props.setTotalNewsCount(response.data.totalResults)
-            })
-        debugger;
+        this.props.getNews(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
+        this.props.getNews(pageNumber, this.props.pageSize);
         this.props.setCurrentPage(pageNumber);
-        this.props.toggleIsFetching(true);
-        axios.get(`http://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey=5495a97e2ea541478caa583b30617675&page=${pageNumber}&pageSize=${this.props.pageSize}`)
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setPosts(response.data.articles)
-            })
     }
 
     render() {
@@ -51,6 +40,5 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {
-        setPosts, setCurrentPage,
-        setTotalNewsCount, toggleIsFetching
+        setCurrentPage, getNews
     })(NewsContainer);

@@ -19,7 +19,6 @@ class LearningContainer extends React.Component {
 
 
     render() {
-        debugger;
         return <Learning
             {...this.props}
             techsNames={this.props.learningPage.techsNames}

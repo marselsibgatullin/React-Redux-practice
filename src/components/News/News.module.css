@@ -17,3 +17,6 @@
 .load {
     margin: auto;
 }
+span {
+    cursor: pointer
+}
