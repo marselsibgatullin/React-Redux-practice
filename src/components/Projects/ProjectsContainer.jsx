@@ -2,6 +2,7 @@ import React from "react";
 import {addProjects, updateNewProject} from "../../redux/projects-reducer";
 import Projects from "./Projects";
 import {connect} from "react-redux";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -10,9 +11,6 @@ let mapStateToProps = (state) => {
 }
 
 
-const ProjectsContainer = connect(mapStateToProps,
-    {
-    addProjects,updateNewProject
-    })(Projects);
-
-export default ProjectsContainer;
+export default compose(
+    connect(mapStateToProps, {addProjects,updateNewProject})
+)(Projects)

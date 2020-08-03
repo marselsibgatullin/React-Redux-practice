@@ -6,6 +6,7 @@ import {
 } from "../../redux/news-reducer";
 import News from "./News";
 import Preloader from "../common/Preloader/Preloader";
+import {compose} from "redux";
 
 class NewsContainer extends React.Component {
 
@@ -38,7 +39,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,
-    {
-        setCurrentPage, getNews
-    })(NewsContainer);
+export default compose (
+    connect(mapStateToProps, {setCurrentPage, getNews})
+)(NewsContainer);

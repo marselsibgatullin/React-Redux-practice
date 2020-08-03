@@ -3,6 +3,7 @@ import Learning from "./Learning";
 import {connect} from "react-redux";
 import {setLinksContent} from "../../redux/learning-reducer";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 
 class LearningContainer extends React.Component {
     componentDidMount() {
@@ -23,7 +24,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let url = withRouter(LearningContainer);
-
-export default connect(mapStateToProps, {setLinksContent})(url);
-
+export default compose(
+    connect(mapStateToProps, {setLinksContent}),
+    withRouter
+)(LearningContainer)

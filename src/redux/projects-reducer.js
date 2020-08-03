@@ -16,7 +16,7 @@ let initialState = {
             title: 'React-redux learning practice'
         }
     ],
-    newProjectTitle: 'Project tittle',
+    newProjectTitle: 'Project title',
     newProjectDesc: 'Project description',
     newProjectLink: ''
 }
