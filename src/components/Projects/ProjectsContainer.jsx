@@ -1,5 +1,5 @@
 import React from "react";
-import {addProjects, updateNewProject} from "../../redux/projects-reducer";
+import {addProjects} from "../../redux/projects-reducer";
 import Projects from "./Projects";
 import {connect} from "react-redux";
 import {compose} from "redux";
@@ -10,7 +10,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-
 export default compose(
-    connect(mapStateToProps, {addProjects,updateNewProject})
+    connect(mapStateToProps, {addProjects})
 )(Projects)

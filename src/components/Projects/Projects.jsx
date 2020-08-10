@@ -1,23 +1,14 @@
 import React from "react";
 import style from './Projects.module.css';
 import Project from "./Project/Project";
+import {AddProjectsReduxForm} from "./AddProjectsForm";
 
 const Projects = (props) => {
     let project = props.projectsPage.projects.map(el => <Project link={el.link} title={el.title} desc={el.desc}
                                                                  id={el.id} key = {el.id}/>);
 
-    let newProjectElementTitle = React.createRef();
-    let newProjectElementDesc = React.createRef();
-    let newProjectElementLink = React.createRef();
-
-    let onAddProjects = () => {
-        props.addProjects();
-    }
-    let onProjectChange = () => {
-        let title = newProjectElementTitle.current.value;
-        let desc = newProjectElementDesc.current.value;
-        let link = newProjectElementLink.current.value;
-        props.updateNewProject(title, link, desc);
+    let addNewProjects = (values) => {
+        props.addProjects(values);
     }
 
     return (
@@ -27,16 +18,8 @@ const Projects = (props) => {
                 {project}
             </div>
             <div className={style.addBlock}>
-                <div>Title: <input onChange={onProjectChange}
-                                   ref={newProjectElementTitle}
-                                   value={props.projectsPage.newProjectTitle}/></div>
-                <div>Link: <input onChange={onProjectChange}
-                                  ref={newProjectElementLink}
-                                  value={props.projectsPage.newProjectLink}/></div>
-                <div>Description: <textarea onChange={onProjectChange}
-                                            ref={newProjectElementDesc}
-                                            value={props.projectsPage.newProjectDesc}/></div>
-                <button onClick={onAddProjects} className={style.add}>Add</button>
+                <h1>Add Projects</h1>
+                <AddProjectsReduxForm onSubmit={addNewProjects}/>
             </div>
         </div>
     )

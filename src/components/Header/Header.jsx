@@ -12,7 +12,7 @@ const Header = (props) =>{
                 <h1>All In Your Hands</h1>
             </div>
             <div className={style.login}>
-                {props.isAuth ? props.login :<a className={style.link} href='https://social-network.samuraijs.com/login'>Login</a>}
+                {props.isAuth ? props.login :<NavLink className={style.link} to='/login'>Login</NavLink>}
             </div>
         </header>
     );

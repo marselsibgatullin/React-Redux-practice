@@ -7,7 +7,7 @@ const About = (props) => {
     return (
         <div className={style.content}>
             <Photo/>
-            <Description/>
+            <Description status={props.status} updateStatus={props.updateStatus}/>
         </div>
     )
 }

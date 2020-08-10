@@ -2,9 +2,9 @@ import * as axios from "axios";
 
 const instance = axios.create ({
     withCredentials: true,
-    baseURL: '',
+    baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
-        "API-KEY": ""
+        "API-KEY": "7ccc1bce-71b5-4410-a323-ec4c7c3308fa"
     }
 });
 
@@ -19,7 +19,20 @@ export const newsAPI = {
 export const authAPI = {
     logMe(){
         return (
-            instance.get(`https://social-network.samuraijs.com/api/1.0/auth/me`)
+            instance.get(`auth/me`)
+        )
+    }
+}
+
+export const statusAPI = {
+    getStatus(){
+        return (
+            instance.get(`profile/status/9597`)
+        )
+    },
+    updateStatus(status){
+        return(
+            instance.put(`profile/status`,{status})
         )
     }
 }

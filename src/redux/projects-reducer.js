@@ -1,5 +1,4 @@
 const ADD_PROJECTS = 'ADD-PROJECTS';
-const UPDATE_NEW_PROJECT = 'UPDATE-NEW-PROJECT';
 
 let initialState = {
     projects: [
@@ -15,10 +14,7 @@ let initialState = {
             desc: 'Description',
             title: 'React-redux learning practice'
         }
-    ],
-    newProjectTitle: 'Project title',
-    newProjectDesc: 'Project description',
-    newProjectLink: ''
+    ]
 }
 
 const projectsReducer = (state = initialState, action) => {
@@ -27,36 +23,19 @@ const projectsReducer = (state = initialState, action) => {
         case ADD_PROJECTS:
             let newProjects = {
                 id: 'x',
-                link: state.newProjectLink,
-                desc: state.newProjectDesc,
-                title: state.newProjectTitle
+                link: action.data.link,
+                desc: action.data.desc,
+                title: action.data.title
             }
             return  {
                 ...state,
-                newProjectTitle: '',
-                newProjectDesc: '',
-                newProjectLink: '',
                 projects: [...state.projects, newProjects]
-            };
-
-        case UPDATE_NEW_PROJECT:
-            return  {
-                ...state,
-                newProjectLink: action.newLink,
-                newProjectDesc: action.newDesc,
-                newProjectTitle: action.newTitle
             };
 
         default:
             return state;
     }
 }
-export const addProjects = () => ({type: ADD_PROJECTS})
-export const updateNewProject = (title, link, desc) => ({
-    type: UPDATE_NEW_PROJECT,
-    newTitle: title,
-    newLink: link,
-    newDesc: desc
-})
+export const addProjects = (data) => ({type: ADD_PROJECTS, data})
 
 export default projectsReducer;
