@@ -18,7 +18,7 @@ const Projects = (props) => {
                 {project}
             </div>
             <div className={style.addBlock}>
-                <h1>Add Projects</h1>
+                <h2>Add Project</h2>
                 <AddProjectsReduxForm onSubmit={addNewProjects}/>
             </div>
         </div>
