@@ -1,6 +1,6 @@
 import * as axios from "axios";
 
-const instance = axios.create ({
+const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
@@ -10,29 +10,34 @@ const instance = axios.create ({
 
 
 export const newsAPI = {
-    getNews(currentPage, pageSize){
+    getNews(currentPage, pageSize) {
         return (
             axios.get(`http://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey=5495a97e2ea541478caa583b30617675&page=${currentPage}&pageSize=${pageSize}`)
         )
     }
 }
 export const authAPI = {
-    logMe(){
-        return (
-            instance.get(`auth/me`)
-        )
+    authMe() {
+        return instance.get(`auth/me`);
+    },
+    login(email, password, rememberMe = false) {
+        return instance.post(`auth/login`, {email, password, rememberMe});
+    },
+    logout() {
+        return instance.delete(`auth/login`);
     }
 }
 
+
 export const statusAPI = {
-    getStatus(){
+    getStatus() {
         return (
             instance.get(`profile/status/9597`)
         )
     },
-    updateStatus(status){
-        return(
-            instance.put(`profile/status`,{status})
+    updateStatus(status) {
+        return (
+            instance.put(`profile/status`, {status})
         )
     }
 }

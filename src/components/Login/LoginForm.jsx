@@ -12,11 +12,11 @@ const LoginForm = (props) => {
         <form onSubmit={props.handleSubmit}>
             <div>
                 <Field validate={[required, minLength8]}
-                       component={Input} name={"login"} placeholder={"Login"}/>
+                       component={Input} name={"email"} placeholder={"Email"}/>
             </div>
             <div>
                 <Field validate={[required, maxLength30, minLength8]}
-                       component={Input} name={"password"} placeholder={"Password"}/>
+                       component={Input} name={"password"} placeholder={"Password"} type={"password"}/>
             </div>
             <div>
                 <Field component={"input"} name={"rememberMe"} type={"checkbox"}/> Remember me
