@@ -7,6 +7,7 @@ import {
 import News from "./News";
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
+import {getCurrentPage, getIsFetching, getPageSize, getPosts, getTotalNewsCount} from "../../redux/news-selector";
 
 class NewsContainer extends React.Component {
 
@@ -16,7 +17,6 @@ class NewsContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.getNews(pageNumber, this.props.pageSize);
-        this.props.setCurrentPage(pageNumber);
     }
 
     render() {
@@ -29,13 +29,23 @@ class NewsContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+/*let mapStateToProps = (state) => {
     return {
         post: state.newsPage.post,
         pageSize: state.newsPage.pageSize,
         totalNewsCount: state.newsPage.totalNewsCount,
         currentPage: state.newsPage.currentPage,
         isFetching: state.newsPage.isFetching
+    }
+}*/
+
+let mapStateToProps = (state) => {
+    return {
+        post: getPosts(state),
+        pageSize: getPageSize(state),
+        totalNewsCount: getTotalNewsCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state)
     }
 }
 

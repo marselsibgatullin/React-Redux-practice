@@ -3,7 +3,7 @@ import MainContent from "./MainContent/MainContent";
 import style from "./News.module.css";
 import Posts from "./Posts/Posts";
 
-let News = (props) => {
+const News = (props) => {
 
     let main = [];
     main.push(props.post[0]);

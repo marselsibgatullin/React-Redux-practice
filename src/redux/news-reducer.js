@@ -51,10 +51,11 @@ export const setTotalNewsCount = (totalNewsCount) => ({type: SET_TOTAL_NEWS_COUN
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 
-export const getNews = (currentPage, pageSize) => {
+export const getNews = (page, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        newsAPI.getNews(currentPage, pageSize).then(response => {
+        dispatch(setCurrentPage(page));
+        newsAPI.getNews(page, pageSize).then(response => {
             dispatch(toggleIsFetching(false));
             dispatch(setPosts(response.data.articles));
             dispatch(setTotalNewsCount(response.data.totalResults));
