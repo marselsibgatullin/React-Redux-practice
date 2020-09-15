@@ -1,12 +1,12 @@
 import React from "react";
 import style from './Description.module.css';
-import StatusWithHooks from "./StatusWithHooks";
+import Status from "./Status";
 
 const Description = (props) => {
     return (
         <div className={style.content}>
             <div className={style.tittle}><h2>About me</h2>
-                <StatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
+                <Status status={props.status} updateStatus={props.updateStatus}/></div>
             <div className={style.descr}>
                 <p>Name: Sibgatullin Marsel</p><br/>
                 <p>Ages: 23 years old</p><br/>

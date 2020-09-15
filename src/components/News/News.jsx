@@ -3,17 +3,13 @@ import MainContent from "./MainContent/MainContent";
 import style from "./News.module.css";
 import Posts from "./Posts/Posts";
 
-const News = (props) => {
-
+const News = props => {
     let main = [];
     main.push(props.post[0]);
     let mainCont = {...main[0]};
-
     let postCont = [...props.post];
     postCont.shift();
-
     let pagesCount = Math.ceil(props.totalNewsCount / props.pageSize);
-
     let pages = [];
 
     for (let i = 1; i <= pagesCount; i++) {

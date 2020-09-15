@@ -1,7 +1,7 @@
 import React from "react";
 import style from './Post.module.css';
 
-const Post = (props) => {
+const Post = props => {
   return (
       <div className={style.descr}>
         <a href={props.link} className={style.link}>

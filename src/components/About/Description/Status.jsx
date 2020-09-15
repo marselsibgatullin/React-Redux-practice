@@ -1,52 +1,41 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
-class Status extends React.Component {
-    state = {
-        editMode: false,
-        status: this.props.status
-    }
-    activateEditMode = () => {
-        this.setState({
-            editMode: true,
-        })
-    }
+const Status = (props) => {
 
-    deactivateEditMode = () => {
-        this.setState({
-            editMode: false
-        })
-        this.props.updateStatus(this.state.status);
+    const [editMode, setEditMode]  = useState(false);
+    const [status, setStatus]  = useState(props.status);
+
+    useEffect(() =>{
+        setStatus(props.status);
+    }, [props.status]);
+
+    const activateEditMode = () => {
+        setEditMode(true);
     }
 
-    onStatusChange = (e) => {
-        this.setState({
-            status: e.currentTarget.value
-        });
+    const deactivateEditMode = () => {
+        setEditMode(false);
+        props.updateStatus(status);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.status !== this.props.status)
-            this.setState({
-                status: this.props.status
-            });
+    const onStatusChange = (e) => {
+        setStatus(e.currentTarget.value);
     }
-    
-    render() {
-        return (
-            <div>
-                {this.state.editMode ?
-                    <div>
-                        <input onChange={this.onStatusChange} autoFocus={true}
-                               onBlur={this.deactivateEditMode} value={this.state.status}/>
-                    </div>
-                    :
-                    <div>
-                        <span onClick={this.activateEditMode}>{this.props.status || "-----"}</span>
-                    </div>
-                }
-            </div>
-        )
-    }
+
+    return (
+        <div>
+            {!editMode ?
+                <div>
+                    <span onClick={activateEditMode}>{props.status || "-----"}</span>
+                </div>
+                :
+                <div>
+                    <input onChange={onStatusChange} autoFocus={true}
+                           onBlur={deactivateEditMode} value={status}/>
+                </div>
+            }
+        </div>
+    )
 }
 
 export default Status;
